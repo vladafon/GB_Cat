@@ -1,8 +1,8 @@
 {
     "name": "GB_Cat",
     "author": "Vladislav_Ioffe",
-    "_version": "3.0.0",
-    "_release": "1",
+    "_version": "3.1.0",
+    "_release": "3",
     "scenes": [
         {
             "name": "Logo Scene",
@@ -382,7 +382,7 @@
             "triggers": [],
             "script": [
                 {
-                    "command": "EVENT_ACTOR_HIDE",
+                    "command": "EVENT_ACTOR_DEACTIVATE",
                     "args": {
                         "actorId": "$self$"
                     },
@@ -427,7 +427,8 @@
             ],
             "playerHit1Script": [],
             "playerHit2Script": [],
-            "playerHit3Script": []
+            "playerHit3Script": [],
+            "symbol": "scene_logo_scene"
         },
         {
             "name": "Main Menu Scene",
@@ -809,13 +810,13 @@
                 {
                     "command": "EVENT_MUSIC_PLAY",
                     "args": {
-                        "musicId": "355626d6-293e-42db-b57c-55dd3a2ae341",
+                        "musicId": "abdc8b49-e18b-431b-9170-0de1b1cb96e8",
                         "loop": true
                     },
                     "id": "ee3de098-85ae-4865-a6bb-5b0b3c70c16b"
                 },
                 {
-                    "command": "EVENT_ACTOR_HIDE",
+                    "command": "EVENT_ACTOR_DEACTIVATE",
                     "args": {
                         "actorId": "$self$"
                     },
@@ -899,7 +900,7 @@
                                             "command": "EVENT_SWITCH_SCENE",
                                             "args": {
                                                 "sceneId": "19edeb1d-4f46-42dc-98f9-6d6d10ee7b0f",
-                                                "x": 0,
+                                                "x": 1,
                                                 "y": 13,
                                                 "direction": "right",
                                                 "fadeSpeed": 4
@@ -917,7 +918,8 @@
             ],
             "playerHit1Script": [],
             "playerHit2Script": [],
-            "playerHit3Script": []
+            "playerHit3Script": [],
+            "symbol": "scene_main_menu_scene"
         },
         {
             "name": "Level Test",
@@ -3842,22 +3844,17 @@
                     "height": 1,
                     "script": [
                         {
-                            "command": "EVENT_SET_VALUE",
-                            "args": {
-                                "variable": "T0",
-                                "value": {
-                                    "type": "variable",
-                                    "value": "L1"
-                                }
-                            },
-                            "id": "288bf7cc-325e-4bf7-b7ba-83f259af99fa"
-                        },
-                        {
                             "command": "EVENT_CALL_CUSTOM_EVENT",
                             "args": {
                                 "customEventId": "47b38b6e-47b7-48e6-b6b9-ac2f467d3bda",
-                                "$variable[0]$": "L0",
-                                "$variable[1]$": "T0"
+                                "$variable[V0]$": {
+                                    "type": "variable",
+                                    "value": "L0"
+                                },
+                                "$variable[V1]$": {
+                                    "type": "variable",
+                                    "value": "L1"
+                                }
                             },
                             "id": "f93f8e0a-0ba3-43db-a56a-67ee732cc1fe"
                         },
@@ -3865,15 +3862,28 @@
                             "command": "EVENT_CALL_CUSTOM_EVENT",
                             "args": {
                                 "customEventId": "1a7cd4f1-8025-45cc-970c-e89c5083e071",
-                                "$variable[0]$": "L0",
-                                "$variable[3]$": "L1",
-                                "$variable[1]$": "L2",
-                                "$variable[2]$": "L3"
+                                "$variable[V0]$": {
+                                    "type": "variable",
+                                    "value": "L0"
+                                },
+                                "$variable[V1]$": {
+                                    "type": "variable",
+                                    "value": "L2"
+                                },
+                                "$variable[V2]$": {
+                                    "type": "variable",
+                                    "value": "L3"
+                                },
+                                "$variable[V3]$": {
+                                    "type": "variable",
+                                    "value": "L1"
+                                }
                             },
                             "id": "007b1711-f0e5-4f68-be0a-7732eb855840"
                         }
                     ],
-                    "leaveScript": []
+                    "leaveScript": [],
+                    "symbol": "trigger_hole_1"
                 },
                 {
                     "name": "Hole 2",
@@ -3883,7 +3893,8 @@
                     "width": 5,
                     "height": 1,
                     "script": [],
-                    "leaveScript": []
+                    "leaveScript": [],
+                    "symbol": "trigger_hole_2"
                 }
             ],
             "script": [
@@ -3930,7 +3941,7 @@
                         "variable": "L2",
                         "value": {
                             "type": "number",
-                            "value": 0
+                            "value": 1
                         }
                     },
                     "id": "2bce6818-e3af-4a8f-9cca-cd72e1cfcc36"
@@ -3950,31 +3961,37 @@
             "playerHit1Script": [],
             "playerHit2Script": [],
             "playerHit3Script": [],
-            "playerSpriteSheetId": "99f9d7ae-ed43-4cab-877f-a335902831ca"
+            "playerSpriteSheetId": "99f9d7ae-ed43-4cab-877f-a335902831ca",
+            "symbol": "scene_level_test"
         }
     ],
     "backgrounds": [
         {
             "id": "8be234a1-60bb-4cac-ab48-fa2cbbd65fbc",
             "name": "black",
+            "symbol": "bg_black",
             "width": 20,
             "height": 18,
             "imageWidth": 160,
             "imageHeight": 144,
-            "filename": "black.png"
+            "filename": "black.png",
+            "tileColors": []
         },
         {
             "id": "738d42cd-c77f-42a2-811a-03d4d6d21536",
             "name": "logo",
+            "symbol": "bg_logo",
             "width": 20,
             "height": 18,
             "imageWidth": 160,
             "imageHeight": 144,
-            "filename": "logo.png"
+            "filename": "logo.png",
+            "tileColors": []
         },
         {
             "id": "1e5f9d6a-bdbc-43e6-8c34-22f5bb5dea05",
             "name": "placeholder",
+            "symbol": "bg_placeholder",
             "width": 20,
             "height": 18,
             "imageWidth": 160,
@@ -3985,26 +4002,31 @@
         {
             "id": "106ed920-20fc-4fef-b8e1-64d57d740331",
             "name": "platform_path",
+            "symbol": "bg_platform_path",
             "width": 161,
             "height": 18,
             "imageWidth": 1288,
             "imageHeight": 144,
-            "filename": "platform_path.png"
+            "filename": "platform_path.png",
+            "tileColors": []
         },
         {
             "id": "b67cdaa5-aa26-4a8a-aa49-b47d5de5abf6",
             "name": "titlescreen",
+            "symbol": "bg_titlescreen",
             "width": 20,
             "height": 18,
             "imageWidth": 160,
             "imageHeight": 144,
-            "filename": "titlescreen.png"
+            "filename": "titlescreen.png",
+            "tileColors": []
         }
     ],
     "spriteSheets": [
         {
             "id": "99f9d7ae-ed43-4cab-877f-a335902831ca",
             "name": "Cat",
+            "symbol": "sprite_cat",
             "numFrames": 5,
             "type": "animated",
             "filename": "Cat.png",
@@ -4505,6 +4527,7 @@
         {
             "id": "a2486b71-03eb-4eff-8f68-05fcd7b907a5",
             "name": "Dog",
+            "symbol": "sprite_dog",
             "numFrames": 4.375,
             "type": "animated",
             "filename": "Dog.png",
@@ -5313,6 +5336,7 @@
         {
             "id": "30dbdffa-0453-46ac-8468-d0cec719b342",
             "name": "Fish",
+            "symbol": "sprite_fish",
             "numFrames": 1,
             "type": "static",
             "filename": "Fish.png",
@@ -5440,6 +5464,7 @@
         {
             "id": "11b5452b-187c-43a3-afb1-a1f4f74ffda2",
             "name": "actor",
+            "symbol": "sprite_actor",
             "numFrames": 3,
             "type": "actor",
             "filename": "actor.png",
@@ -5675,6 +5700,7 @@
         {
             "id": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
             "name": "actor_animated",
+            "symbol": "sprite_actor_animated",
             "numFrames": 6,
             "type": "actor_animated",
             "filename": "actor_animated.png",
@@ -6030,6 +6056,7 @@
         {
             "id": "daf95270-e30d-423b-9ee7-990ae29f57f6",
             "name": "static",
+            "symbol": "sprite_static",
             "numFrames": 1,
             "type": "static",
             "filename": "static.png",
@@ -6338,20 +6365,23 @@
                     },
                     "id": "16bf7def-c5ed-4313-bd33-f3008ed6d80e"
                 }
-            ]
+            ],
+            "symbol": "script_show_menu"
         },
         {
             "id": "47b38b6e-47b7-48e6-b6b9-ac2f467d3bda",
             "name": "Calculate Injury",
             "description": "Calculates injury",
             "variables": {
-                "0": {
-                    "id": "0",
-                    "name": "VictimHealth"
+                "V0": {
+                    "id": "V0",
+                    "name": "VictimHealth_ref",
+                    "passByReference": true
                 },
-                "1": {
-                    "id": "1",
-                    "name": "BullyAttack"
+                "V1": {
+                    "id": "V1",
+                    "name": "BullyAttack",
+                    "passByReference": false
                 }
             },
             "actors": {},
@@ -6359,10 +6389,10 @@
                 {
                     "command": "EVENT_VARIABLE_MATH",
                     "args": {
-                        "vectorX": "0",
+                        "vectorX": "V0",
                         "operation": "sub",
                         "other": "var",
-                        "vectorY": "1",
+                        "vectorY": "V1",
                         "value": "0",
                         "minValue": "0",
                         "maxValue": "32767",
@@ -6373,7 +6403,7 @@
                 {
                     "command": "EVENT_IF_VALUE",
                     "args": {
-                        "variable": "0",
+                        "variable": "V0",
                         "operator": "<=",
                         "comparator": "0",
                         "__collapseElse": true,
@@ -6384,7 +6414,7 @@
                             {
                                 "command": "EVENT_SET_VALUE",
                                 "args": {
-                                    "variable": "0",
+                                    "variable": "V0",
                                     "value": {
                                         "type": "number",
                                         "value": 0
@@ -6397,28 +6427,33 @@
                     },
                     "id": "f1d230a8-7d2d-4511-9885-0618e4a5d064"
                 }
-            ]
+            ],
+            "symbol": "script_calculate_injury"
         },
         {
             "id": "1a7cd4f1-8025-45cc-970c-e89c5083e071",
             "name": "Player Death Checker",
             "description": "Check if player is dead and make actions depends on that",
             "variables": {
-                "0": {
-                    "id": "0",
-                    "name": "Health"
+                "V0": {
+                    "id": "V0",
+                    "name": "Health_ref",
+                    "passByReference": true
                 },
-                "1": {
-                    "id": "1",
-                    "name": "X Start"
+                "V1": {
+                    "id": "V1",
+                    "name": "X Start",
+                    "passByReference": false
                 },
-                "2": {
-                    "id": "2",
-                    "name": "Y Start"
+                "V2": {
+                    "id": "V2",
+                    "name": "Y Start",
+                    "passByReference": false
                 },
-                "3": {
-                    "id": "3",
-                    "name": "Max Health"
+                "V3": {
+                    "id": "V3",
+                    "name": "Max Health",
+                    "passByReference": false
                 }
             },
             "actors": {},
@@ -6426,7 +6461,7 @@
                 {
                     "command": "EVENT_IF_VALUE",
                     "args": {
-                        "variable": "0",
+                        "variable": "V0",
                         "operator": "==",
                         "comparator": "0",
                         "__collapseElse": true
@@ -6447,11 +6482,11 @@
                                     "actorId": "$self$",
                                     "x": {
                                         "type": "variable",
-                                        "value": "1"
+                                        "value": "V1"
                                     },
                                     "y": {
                                         "type": "variable",
-                                        "value": "2"
+                                        "value": "V2"
                                     }
                                 },
                                 "id": "dbe586dd-9271-4d74-8b38-ebe423ae1ae9"
@@ -6459,10 +6494,10 @@
                             {
                                 "command": "EVENT_SET_VALUE",
                                 "args": {
-                                    "variable": "0",
+                                    "variable": "V0",
                                     "value": {
                                         "type": "variable",
-                                        "value": "3"
+                                        "value": "V3"
                                     }
                                 },
                                 "id": "649f2025-5535-435c-ab88-32521c8f9be7"
@@ -6472,29 +6507,50 @@
                     },
                     "id": "b3dc12f7-2e66-4a25-8f85-05ee8032cea2"
                 }
-            ]
+            ],
+            "symbol": "script_player_death_checker"
         }
     ],
     "music": [
         {
+            "id": "abdc8b49-e18b-431b-9170-0de1b1cb96e8",
+            "name": "Intro",
+            "symbol": "song_megasong_",
+            "filename": "Intro.uge",
+            "settings": {},
+            "type": "uge"
+        },
+        {
             "id": "355626d6-293e-42db-b57c-55dd3a2ae341",
-            "name": "song_template",
-            "filename": "song_template.uge",
+            "name": "Little Cat",
+            "symbol": "song_song_template",
+            "filename": "Little Cat.uge",
+            "settings": {},
+            "type": "uge"
+        },
+        {
+            "id": "fd6bdcd4-e202-4c14-80d6-e264f33ad295",
+            "name": "MEGASONG",
+            "symbol": "song_megasong",
+            "filename": "MEGASONG.uge",
             "settings": {},
             "type": "uge"
         },
         {
             "id": "f50428ab-a084-4591-9bba-2ba10fe7b1c6",
             "name": "template",
+            "symbol": "song_template",
             "filename": "template.mod",
             "settings": {},
             "type": "mod"
         }
     ],
+    "sounds": [],
     "fonts": [
         {
             "id": "4bd653f0-e08d-424e-9e5b-c1f3aaa21e47",
             "name": "GBS Mono",
+            "symbol": "font_gbs_mono",
             "width": 128,
             "height": 112,
             "filename": "gbs-mono.png"
@@ -6502,6 +6558,7 @@
         {
             "id": "8ed435d9-51cb-44e7-8b0d-ca85e63ca427",
             "name": "GBS Variable Width",
+            "symbol": "font_gbs_variable_width",
             "width": 128,
             "height": 112,
             "filename": "gbs-var.png"
@@ -6512,6 +6569,7 @@
         {
             "id": "9df5f63f-ea47-447e-9b14-cb2dbafb697d",
             "name": "anger",
+            "symbol": "emote_anger",
             "width": 16,
             "height": 16,
             "filename": "anger.png"
@@ -6519,6 +6577,7 @@
         {
             "id": "edf96d29-9a08-4813-b2d3-46e0996f89f2",
             "name": "love",
+            "symbol": "emote_love",
             "width": 16,
             "height": 16,
             "filename": "love.png"
@@ -6526,6 +6585,7 @@
         {
             "id": "f1be2ac3-04ab-482a-8b83-99ffba1a89cd",
             "name": "music",
+            "symbol": "emote_music",
             "width": 16,
             "height": 16,
             "filename": "music.png"
@@ -6533,6 +6593,7 @@
         {
             "id": "d508e529-57eb-458b-9782-66f318243c32",
             "name": "pause",
+            "symbol": "emote_pause",
             "width": 16,
             "height": 16,
             "filename": "pause.png"
@@ -6540,6 +6601,7 @@
         {
             "id": "70a4ce25-1fe4-4ab1-aee9-21255e70fb76",
             "name": "question",
+            "symbol": "emote_question",
             "width": 16,
             "height": 16,
             "filename": "question.png"
@@ -6547,6 +6609,7 @@
         {
             "id": "56423c9c-dca0-4f5b-ad92-28e9660d50f1",
             "name": "shock",
+            "symbol": "emote_shock",
             "width": 16,
             "height": 16,
             "filename": "shock.png"
@@ -6554,6 +6617,7 @@
         {
             "id": "2d4b251d-0241-40eb-98e1-e396b236772c",
             "name": "sleep",
+            "symbol": "emote_sleep",
             "width": 16,
             "height": 16,
             "filename": "sleep.png"
@@ -6561,6 +6625,7 @@
         {
             "id": "3c769dca-51f3-426c-942f-71c4d3af6202",
             "name": "sweat",
+            "symbol": "emote_sweat",
             "width": 16,
             "height": 16,
             "filename": "sweat.png"
@@ -6569,39 +6634,48 @@
     "variables": [
         {
             "id": "77844fef-8fc6-466e-85bf-2dab2bbe5153__L0",
-            "name": "IsContinuePressed"
+            "name": "IsContinuePressed",
+            "symbol": "var_iscontinuepressed"
         },
         {
             "id": "19edeb1d-4f46-42dc-98f9-6d6d10ee7b0f__L0",
-            "name": "Player Health"
+            "name": "Player Health",
+            "symbol": "var_player_health"
         },
         {
             "id": "19edeb1d-4f46-42dc-98f9-6d6d10ee7b0f__L1",
-            "name": "Player Max Health"
+            "name": "Player Max Health",
+            "symbol": "var_player_max_health"
         },
         {
             "id": "b2eb8d1d-0de2-4fbd-9475-5380f3889002__L0",
-            "name": "Player Health"
+            "name": "Player Health",
+            "symbol": "var_player_health_0"
         },
         {
             "id": "b2eb8d1d-0de2-4fbd-9475-5380f3889002__L1",
-            "name": "Player Max Health"
+            "name": "Player Max Health",
+            "symbol": "var_player_max_health_0"
         },
         {
             "id": "b2eb8d1d-0de2-4fbd-9475-5380f3889002__L2",
-            "name": "X Start"
+            "name": "X Start",
+            "symbol": "var_x_start"
         },
         {
             "id": "b2eb8d1d-0de2-4fbd-9475-5380f3889002__L3",
-            "name": "Y Start"
+            "name": "Y Start",
+            "symbol": "var_y_start"
         },
         {
             "id": "19edeb1d-4f46-42dc-98f9-6d6d10ee7b0f__L2",
-            "name": "X Start"
+            "name": "X Start",
+            "symbol": "var_x_start_0"
         },
         {
             "id": "19edeb1d-4f46-42dc-98f9-6d6d10ee7b0f__L3",
-            "name": "Y Start"
+            "name": "Y Start",
+            "symbol": "var_y_start_0"
         }
     ],
     "engineFieldValues": [
@@ -6619,9 +6693,9 @@
         "startDirection": "down",
         "showCollisions": true,
         "showConnections": true,
-        "worldScrollX": 2056,
-        "worldScrollY": 724.7999877929688,
-        "zoom": 287.5,
+        "worldScrollX": 41,
+        "worldScrollY": 0,
+        "zoom": 137.5,
         "customColorsEnabled": true,
         "sgbEnabled": false,
         "customHead": "",
@@ -6649,9 +6723,9 @@
         "defaultUIPaletteId": "default-ui",
         "playerPaletteId": "",
         "navigatorSplitSizes": [
-            457,
-            138,
-            138
+            598,
+            179,
+            179
         ],
         "showNavigator": true,
         "defaultFontId": "4bd653f0-e08d-424e-9e5b-c1f3aaa21e47",
