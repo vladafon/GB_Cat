@@ -7203,28 +7203,91 @@
                                 "children": {
                                     "true": [
                                         {
-                                            "command": "EVENT_ACTOR_MOVE_RELATIVE",
+                                            "command": "EVENT_IF_ACTOR_DISTANCE_FROM_ACTOR",
                                             "args": {
                                                 "actorId": "0",
-                                                "x": -4,
-                                                "y": 0,
-                                                "moveType": "horizontal",
-                                                "useCollisions": true
+                                                "operator": "==",
+                                                "distance": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "otherActorId": "$self$",
+                                                "__collapseElse": false
                                             },
-                                            "id": "c1457647-4568-470d-b1b3-ee7847754445"
+                                            "children": {
+                                                "true": [
+                                                    {
+                                                        "command": "EVENT_ACTOR_MOVE_RELATIVE",
+                                                        "args": {
+                                                            "actorId": "0",
+                                                            "x": -4,
+                                                            "y": 0,
+                                                            "moveType": "horizontal",
+                                                            "useCollisions": true,
+                                                            "__collapse": false
+                                                        },
+                                                        "id": "c1457647-4568-470d-b1b3-ee7847754445"
+                                                    }
+                                                ],
+                                                "false": [
+                                                    {
+                                                        "command": "EVENT_ACTOR_MOVE_RELATIVE",
+                                                        "args": {
+                                                            "actorId": "0",
+                                                            "x": -4,
+                                                            "y": 0,
+                                                            "moveType": "horizontal",
+                                                            "useCollisions": false
+                                                        },
+                                                        "id": "ec21f0f2-0240-474e-b5fc-550159608a55"
+                                                    }
+                                                ]
+                                            },
+                                            "id": "a85b3ddf-714f-40a7-998a-120ffe9bfaa2"
                                         }
                                     ],
                                     "false": [
                                         {
-                                            "command": "EVENT_ACTOR_MOVE_RELATIVE",
+                                            "command": "EVENT_IF_ACTOR_DISTANCE_FROM_ACTOR",
                                             "args": {
                                                 "actorId": "0",
-                                                "x": 4,
-                                                "y": 0,
-                                                "moveType": "horizontal",
-                                                "useCollisions": true
+                                                "operator": "==",
+                                                "distance": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "otherActorId": "$self$",
+                                                "__collapseElse": false
                                             },
-                                            "id": "ef2bd55c-b205-4b85-94ee-697b3259563a"
+                                            "children": {
+                                                "true": [
+                                                    {
+                                                        "command": "EVENT_ACTOR_MOVE_RELATIVE",
+                                                        "args": {
+                                                            "actorId": "0",
+                                                            "x": 4,
+                                                            "y": 0,
+                                                            "moveType": "horizontal",
+                                                            "useCollisions": true
+                                                        },
+                                                        "id": "ef2bd55c-b205-4b85-94ee-697b3259563a"
+                                                    }
+                                                ],
+                                                "false": [
+                                                    {
+                                                        "command": "EVENT_ACTOR_MOVE_RELATIVE",
+                                                        "args": {
+                                                            "actorId": "0",
+                                                            "x": 4,
+                                                            "y": 0,
+                                                            "moveType": "horizontal",
+                                                            "useCollisions": false
+                                                        },
+                                                        "id": "6dcc7801-4d52-4802-9a95-a406804f93ab"
+                                                    }
+                                                ]
+                                            },
+                                            "id": "38216c27-70de-44a2-bf3d-5b44537fa982"
                                         }
                                     ]
                                 },
