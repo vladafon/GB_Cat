@@ -3832,8 +3832,8 @@
             "autoFadeSpeed": 1,
             "id": "ee84242a-6bd5-4855-bd01-ef537a5e47b7",
             "symbol": "scene_4",
-            "x": 77.58530214761569,
-            "y": 291.16924769838454,
+            "x": 60,
+            "y": 370.7950375674254,
             "actors": [
                 {
                     "name": "Dog",
@@ -4015,7 +4015,7 @@
                         {
                             "command": "EVENT_MUSIC_PLAY",
                             "args": {
-                                "musicId": "355626d6-293e-42db-b57c-55dd3a2ae341"
+                                "musicId": "a4291564-ddde-465b-a02b-7cdd8e28fd3f"
                             },
                             "id": "f430b818-f022-4f7d-ab6f-def9c3f25a5f"
                         }
@@ -4235,6 +4235,10 @@
                                 "$variable[V1]$": {
                                     "type": "variable",
                                     "value": "1"
+                                },
+                                "$variable[V2]$": {
+                                    "type": "number",
+                                    "value": 1
                                 }
                             },
                             "id": "687640c1-b6fa-4c66-9bda-e2deeb4df940"
@@ -4278,7 +4282,7 @@
                 {
                     "command": "EVENT_MUSIC_PLAY",
                     "args": {
-                        "musicId": "355626d6-293e-42db-b57c-55dd3a2ae341"
+                        "musicId": "a4291564-ddde-465b-a02b-7cdd8e28fd3f"
                     },
                     "id": "8bee1c60-c11c-4571-b9f8-236dea1ea08a"
                 },
@@ -6201,16 +6205,16 @@
                                             "priority": false
                                         },
                                         {
-                                            "id": "c7f96290-0943-4855-a706-f198accdca3f",
+                                            "id": "74ea9cd7-02fe-4820-8090-865bd15aa1ee",
                                             "x": 8,
                                             "y": 0,
                                             "sliceX": 40,
                                             "sliceY": 0,
+                                            "palette": 0,
                                             "flipX": false,
                                             "flipY": false,
-                                            "palette": 0,
-                                            "paletteIndex": 0,
                                             "objPalette": "OBP0",
+                                            "paletteIndex": 0,
                                             "priority": false
                                         }
                                     ]
@@ -7414,7 +7418,8 @@
                                         "left",
                                         "up",
                                         "down",
-                                        "right"
+                                        "right",
+                                        "a"
                                     ],
                                     "override": true,
                                     "__scriptTabs": "press",
@@ -7478,7 +7483,7 @@
                             {
                                 "command": "EVENT_WAIT",
                                 "args": {
-                                    "time": 3.5,
+                                    "time": 3.2,
                                     "frames": 30
                                 },
                                 "id": "92866ed2-635b-4229-9850-6a8c0fa72350"
@@ -7524,7 +7529,8 @@
                                         "left",
                                         "up",
                                         "down",
-                                        "right"
+                                        "right",
+                                        "a"
                                     ],
                                     "__collapse": false
                                 },
@@ -7546,7 +7552,7 @@
         },
         {
             "id": "620111fc-e122-429a-9418-b72d8f4822a6",
-            "name": "Set Invncibility Pause",
+            "name": "Set Invincibility Pause",
             "description": "",
             "variables": {},
             "actors": {},
@@ -7768,6 +7774,11 @@
             "symbol": "var_is_player_dead"
         },
         {
+            "id": "5",
+            "name": "Is Player Invincible",
+            "symbol": "var_is_player_invincible"
+        },
+        {
             "id": "77844fef-8fc6-466e-85bf-2dab2bbe5153__L0",
             "name": "IsContinuePressed",
             "symbol": "var_iscontinuepressed"
@@ -7868,11 +7879,6 @@
             "symbol": "var_x_left"
         },
         {
-            "id": "5",
-            "name": "Is Player Invincible",
-            "symbol": "var_is_player_invincible"
-        },
-        {
             "id": "c1173467-f4fc-451a-b2be-5da9b066a16f__L0",
             "name": "Health",
             "symbol": "var_health_1"
@@ -7918,8 +7924,8 @@
         "startDirection": "down",
         "showCollisions": true,
         "showConnections": true,
-        "worldScrollX": 247,
-        "worldScrollY": 329,
+        "worldScrollX": 4,
+        "worldScrollY": 100,
         "zoom": 180.84592973813415,
         "customColorsEnabled": true,
         "sgbEnabled": false,
